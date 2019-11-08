@@ -1,0 +1,10 @@
+<%-- any content can be specified here e.g.: --%>
+<%@ page pageEncoding="UTF-8" %>
+<header>
+    <div class="menu">
+        <a href="index.jsp">index</a>
+        <a href="customers.jsp">clientes</a>
+        <a href="manufactures.jsp">fabricantes</a>
+    </div>
+</header>
+
