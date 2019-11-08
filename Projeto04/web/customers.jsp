@@ -10,14 +10,17 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <link rel="stylesheet" type="text/css" href="CSS/main.css">
+        <title>Clientes</title>
     </head>
     <body>
         <%@include file="WEB-INF/jspf/navbar.jspf" %>
-        <h1>Clientes</h1>
-        
-        <table border="1px">
+        <br>
+        <br>
+        <br>
+        <table>
             <tr>
+                <th>COMANDOS</th>
                 <th>ID</th>
                 <th>NOME</th>
                 <th>EMAIL</th>
@@ -25,6 +28,7 @@
             <%try{%>
                 <%for(Customer c: Customer.getList()){%>
                 <tr>
+                    <td><a href="#">Ver produtos</a></td>
                     <td><%=c.getId()%></td>
                     <td><%=c.getName()%></td>
                     <td><%=c.getEmail()%></td>

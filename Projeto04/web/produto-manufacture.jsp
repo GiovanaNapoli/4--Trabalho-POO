@@ -1,6 +1,6 @@
 <%-- 
-    Document   : index
-    Created on : 07/11/2019, 22:18:59
+    Document   : produto-manufacture
+    Created on : 08/11/2019, 00:08:46
     Author     : giova
 --%>
 
@@ -9,10 +9,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" type="text/css" href="CSS/main.css">
-        <title>Home</title>
+        <title>JSP Page</title>
     </head>
     <body>
-        <%@include file="WEB-INF/jspf/navbar.jspf" %>
+        <h1>Hello World!</h1>
     </body>
 </html>

@@ -9,6 +9,8 @@ import java.util.ArrayList;
 public class Manufacture {
     private int id;
     private String name;
+    private String city;
+    private String state;
     private String email;
     
     public static ArrayList<Manufacture> getList()throws Exception{
@@ -19,12 +21,14 @@ public class Manufacture {
         String password = "app";
         Connection con = DriverManager.getConnection(url, user, password);
         Statement stmt = con.createStatement();
-        String sql = "SELECT MANUFACTURER_ID, NAME, EMAIL FROM APP.MANUFACTURER";
+        String sql = "SELECT MANUFACTURER_ID, NAME, CITY, STATE, EMAIL FROM APP.MANUFACTURER";
         ResultSet rs = stmt.executeQuery(sql);
         while(rs.next()){
             Manufacture m = new Manufacture(
                     rs.getInt("MANUFACTURER_ID"),
                     rs.getString("NAME"),
+                    rs.getString("CITY"),
+                    rs.getString("STATE"),
                     rs.getString("EMAIL")
             );
             list.add(m);
@@ -33,9 +37,11 @@ public class Manufacture {
         return list;
     }
 
-    public Manufacture(int id, String name, String email) {
+    public Manufacture(int id, String name, String city, String state, String email) {
         this.id = id;
         this.name = name;
+        this.city = city;
+        this.state = state;
         this.email = email;
     }
 
