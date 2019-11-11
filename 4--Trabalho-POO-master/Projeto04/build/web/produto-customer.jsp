@@ -33,12 +33,11 @@
                 </tr>
                 <%for (Detalhes ds : Detalhes.getList(i)) {%>
                     <tr>
-                        <td><%=i%></td>
                         <td><%=ds.getId()%></td>
                         <td><%=ds.getEndereço1()%></td>
                         <td><%=ds.getEndereço2()%></td>
                         <td><%=ds.getCidade()%></td>
-                        <td><%=ds.getLimite()%></td>
+                        <td>R$ <%=String.format("%1$,.2f",ds.getLimite())%></td>
                 </tr>
                 <%}%>
             </table>
