@@ -8,19 +8,18 @@ import java.util.ArrayList;
 
 public class Detalhes {
     private int id;
-    private String endereço1;
-    private String endereço2;
-    private String cidade;
-    private double limite; 
+    private int qt;
+    private double preco;
+    private String data;
 
-    public Detalhes(int id, String endereço1, String endereço2, String cidade, double limite) {
+    public Detalhes(int id, int qt, double preco, String data) {
         this.id = id;
-        this.endereço1 = endereço1;
-        this.endereço2 = endereço2;
-        this.cidade = cidade;
-        this.limite = limite;
+        this.qt = qt;
+        this.preco = preco;
+        this.data = data;
     }
-        public static ArrayList<Detalhes> getList(int id) throws Exception{
+
+    public static ArrayList<Detalhes> getList(int id) throws Exception {
         ArrayList<Detalhes> list = new ArrayList();
         Class.forName("org.apache.derby.jdbc.ClientDriver");
         String url = "jdbc:derby://localhost:1527/sample";
@@ -28,52 +27,21 @@ public class Detalhes {
         String password = "app";
         Connection con = DriverManager.getConnection(url, user, password);
         Statement stmt = con.createStatement();
-        String sql = "SELECT CUSTOMER_ID, ADDRESSLINE1, ADDRESSLINE2, CITY, CREDIT_LIMIT FROM APP.CUSTOMER WHERE CUSTOMER_ID = " + id;
+        String sql = "SELECT PRODUCT_ID, QUANTITY, SHIPPING_COST, SALES_DATE FROM APP.PURCHASE_ORDER WHERE CUSTOMER_ID = " + id;
         ResultSet ds = stmt.executeQuery(sql);
-        while(ds.next()){
+        while (ds.next()) {
             Detalhes d = new Detalhes(
-                    ds.getInt("CUSTOMER_ID"),
-                    ds.getString("ADDRESSLINE1"),
-                    ds.getString("ADDRESSLINE2"),
-                    ds.getString("CITY"),
-                    ds.getDouble("CREDIT_LIMIT")
+                    ds.getInt("PRODUCT_ID"),
+                    ds.getInt("QUANTITY"),
+                    ds.getDouble("SHIPPING_COST"),
+                    ds.getString("SALES_DATE")
             );
             list.add(d);
         }
-        ds.close();stmt.close();con.close();
+        ds.close();
+        stmt.close();
+        con.close();
         return list;
-    }
-    
-    
-    public String getEndereço1() {
-        return endereço1;
-    }
-
-    public void setEndereço1(String endereço1) {
-        this.endereço1 = endereço1;
-    }
-    public String getEndereço2() {
-        return endereço1;
-    }
-
-    public void setEndereço2(String endereço2) {
-        this.endereço2 = endereço2;
-    }
-
-    public double getLimite() {
-        return limite;
-    }
-
-    public void setLimite(double limite) {
-        this.limite = limite;
-    }
-
-    public String getCidade() {
-        return cidade;
-    }
-
-    public void setCidade(String cidade) {
-        this.cidade = cidade;
     }
 
     public int getId() {
@@ -84,9 +52,27 @@ public class Detalhes {
         this.id = id;
     }
 
+    public int getQt() {
+        return qt;
+    }
 
-    
-    
-    
-    
+    public void setQt(int qt) {
+        this.qt = qt;
+    }
+
+    public double getPreco() {
+        return preco;
+    }
+
+    public void setPreco(double preco) {
+        this.preco = preco;
+    }
+
+    public String getData() {
+        return data;
+    }
+
+    public void setData(String data) {
+        this.data = data;
+    }  
 }
