@@ -26,18 +26,18 @@
             <table>
                 <tr>
                     <th>CUSTOMER_ID</th>
-                    <th>ENDEREÇO_1</th>
-                    <th>ENDEREÇO_2</th>
-                    <th>CIDADE</th>
-                    <th>LIMITE_CREDITO</th>
+                    <th>PRODUCT_ID</th>
+                    <th>QUANTIDADE</th>
+                    <th>PREÇO</th>
+                    <th>DATA DE COMPRA</th>
                 </tr>
                 <%for (Detalhes ds : Detalhes.getList(i)) {%>
                     <tr>
+                        <td><%=i%></td>
                         <td><%=ds.getId()%></td>
-                        <td><%=ds.getEndereço1()%></td>
-                        <td><%=ds.getEndereço2()%></td>
-                        <td><%=ds.getCidade()%></td>
-                        <td>R$ <%=String.format("%1$,.2f",ds.getLimite())%></td>
+                        <td><%=ds.getQt()%></td>
+                        <td>R$ <%=String.format("%1$,.2f",ds.getPreco())%></td>
+                        <td><%=ds.getData()%></td>
                 </tr>
                 <%}%>
             </table>
