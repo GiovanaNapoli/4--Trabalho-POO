@@ -21,7 +21,7 @@ public class Product {
         this.descricao = descricao;
     }
     
-    public static ArrayList<Product> getList() throws Exception{
+    public static ArrayList<Product> getList(int id) throws Exception{
         ArrayList<Product> list = new ArrayList();
         Class.forName("org.apache.derby.jdbc.ClientDriver");
         String url = "jdbc:derby://localhost:1527/sample";
@@ -29,7 +29,7 @@ public class Product {
         String password = "app";
         Connection con = DriverManager.getConnection(url, user, password);
         Statement stmt = con.createStatement();
-        String sql = "SELECT PRODUCT_ID, PRODUCT_CODE, PURCHASE_COST, AVAILABLE, DESCRIPTION FROM APP.PRODUCT WHERE MANUFACTURER_ID";
+        String sql = "SELECT PRODUCT_ID, PRODUCT_CODE, PURCHASE_COST, AVAILABLE, DESCRIPTION FROM APP.PRODUCT WHERE MANUFACTURER_ID = " + id;
         ResultSet rs = stmt.executeQuery(sql);
         while(rs.next()){
             Product p = new Product(

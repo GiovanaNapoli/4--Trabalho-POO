@@ -20,19 +20,22 @@
         <br>
         <table>
             <tr>
-                <th>COMANDOS</th>
                 <th>ID</th>
                 <th>NOME</th>
                 <th>EMAIL</th>
+                <th>CIDADE</th>
+                <th>ESTADO</th>
+                
             </tr>
             <%try{%>
                 <%for(Manufacture m: Manufacture.getList()){%>
                 <tr>
                     <%int i = Manufacture.getIndex(m);%>
-                    <td><a href="produto-manufacture.jsp?i=<%=i%>">Ver produtos</a></td>
-                    <td><%=m.getId()%></td>
+                    <td><a href="produto-manufacture.jsp?i=<%=m.getId()%>"><%=m.getId()%></a></td>
                     <td><%=m.getName()%></td>
                     <td><%=m.getEmail()%></td>
+                    <td><%=m.getCity()%></td>
+                    <td><%=m.getState()%></td>
                 </tr>
                 <%}%>
             <%}catch(Exception e){%>

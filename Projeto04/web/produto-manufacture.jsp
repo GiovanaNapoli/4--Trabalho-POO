@@ -32,7 +32,7 @@
                     <th>STATUS</th>
                     <th>DESCRIÇÃO</th>
                 </tr>
-                <%for (Product pr : Product.getList()) {%>
+                <%for (Product pr : Product.getList(i)) {%>
                     <tr>
                         <td><%=i%></td>
                         <td><%=pr.getId()%></td>
