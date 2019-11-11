@@ -37,7 +37,7 @@
                         <td><%=i%></td>
                         <td><%=pr.getId()%></td>
                         <td><%=pr.getCodigo()%></td>
-                        <td><%=pr.getPreco()%></td>
+                        <td>R$ <%=String.format("%1$,.2f",pr.getPreco())%></td>
                         <td><%=pr.getStatus()%></td>
                         <td><%=pr.getDescricao()%></td>
                 </tr>
