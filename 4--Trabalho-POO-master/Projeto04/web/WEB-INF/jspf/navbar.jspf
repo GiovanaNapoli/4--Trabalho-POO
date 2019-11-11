@@ -3,7 +3,7 @@
 <header>
     <h2 class="logo">JavaDB Sample</h2>
     <div class="menu">
-        <a href="index.jsp">index</a>
+        <a href="index.jsp">Home</a>
         <a href="customers.jsp">clientes</a>
         <a href="manufactures.jsp">fabricantes</a>
     </div>

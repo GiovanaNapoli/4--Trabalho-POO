@@ -28,7 +28,7 @@ public class Customer {
         String password = "app";
         Connection con = DriverManager.getConnection(url, user, password);
         Statement stmt = con.createStatement();
-        String sql = "SELECT CUSTOMER_ID, NAME, EMAIL FROM APP.CUSTOMER";
+        String sql = "SELECT CUSTOMER_ID, NAME, EMAIL FROM APP.CUSTOMER ORDER BY CUSTOMER_ID ASC";
         ResultSet rs = stmt.executeQuery(sql);
         while(rs.next()){
             Customer c = new Customer(
