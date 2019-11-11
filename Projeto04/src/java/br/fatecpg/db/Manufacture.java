@@ -36,7 +36,9 @@ public class Manufacture {
         rs.close();stmt.close();con.close();
         return list;
     }
-
+    public static int getIndex(Manufacture manufacture) throws Exception{
+        return getList().indexOf(manufacture);
+    }
     public Manufacture(int id, String name, String city, String state, String email) {
         this.id = id;
         this.name = name;
@@ -68,4 +70,5 @@ public class Manufacture {
     public void setName(String name) {
         this.name = name;
     }
+
 }

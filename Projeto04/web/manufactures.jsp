@@ -28,7 +28,8 @@
             <%try{%>
                 <%for(Manufacture m: Manufacture.getList()){%>
                 <tr>
-                    <td><a href="#">Ver produtos</a></td>
+                    <%int i = Manufacture.getIndex(m);%>
+                    <td><a href="produto-manufacture.jsp?i=<%=i%>">Ver produtos</a></td>
                     <td><%=m.getId()%></td>
                     <td><%=m.getName()%></td>
                     <td><%=m.getEmail()%></td>
