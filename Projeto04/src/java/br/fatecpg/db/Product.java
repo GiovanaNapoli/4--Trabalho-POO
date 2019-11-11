@@ -29,7 +29,9 @@ public class Product {
         String password = "app";
         Connection con = DriverManager.getConnection(url, user, password);
         Statement stmt = con.createStatement();
-        String sql = "SELECT PRODUCT_ID, PRODUCT_CODE, PURCHASE_COST, AVAILABLE, DESCRIPTION FROM APP.PRODUCT WHERE MANUFACTURER_ID = " + id;
+        String sql = "SELECT PRODUCT_ID, PRODUCT_CODE, PURCHASE_COST, AVAILABLE, DESCRIPTION "
+                + "FROM APP.PRODUCT "
+                + "WHERE MANUFACTURER_ID = " + id;
         ResultSet rs = stmt.executeQuery(sql);
         while(rs.next()){
             Product p = new Product(

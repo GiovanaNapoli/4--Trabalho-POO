@@ -20,7 +20,6 @@
         <br>
         <table>
             <tr>
-                <th>COMANDOS</th>
                 <th>ID</th>
                 <th>NOME</th>
                 <th>EMAIL</th>
@@ -28,8 +27,7 @@
             <%try{%>
                 <%for(Customer c: Customer.getList()){%>
                 <tr>
-                    <td><a href="#">Ver produtos</a></td>
-                    <td><%=c.getId()%></td>
+                    <td><a href="produto-customer.jsp?i=<%=c.getId()%>"><%=c.getId()%></a></td>
                     <td><%=c.getName()%></td>
                     <td><%=c.getEmail()%></td>
                 </tr>

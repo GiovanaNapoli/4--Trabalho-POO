@@ -22,7 +22,7 @@ public class Manufacture {
         String password = "app";
         Connection con = DriverManager.getConnection(url, user, password);
         Statement stmt = con.createStatement();
-        String sql = "SELECT MANUFACTURER_ID, NAME, CITY, STATE, EMAIL FROM APP.MANUFACTURER";
+        String sql = "SELECT MANUFACTURER_ID, NAME, CITY, STATE, EMAIL FROM APP.MANUFACTURER ORDER BY MANUFACTURER_ID ASC";
         ResultSet rs = stmt.executeQuery(sql);
         while (rs.next()) {
             Manufacture m = new Manufacture(
